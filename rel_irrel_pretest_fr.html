@@ -48,7 +48,7 @@ DESCRIPTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   /* Initial variables */
   var timeline = [];
   var preloadimages = [];
-  var prolificID = jsPsych.data.getURLVariable("PROLIFIC_PID"); // Need to add ?prolificID={{%PROLIFIC_PID%}} at the end of the prolific survey link!
+  var prolificID = jsPsych.data.getURLVariable("prolificID"); // Need to add ?prolificID={{%PROLIFIC_PID%}} at the end of the prolific survey link!
 
   /* Functions */
   function flatten(arr) {
@@ -134,7 +134,7 @@ var imgLink = [
       html += "préoccupé, rassurant, rejeté, satisfait, étourdi, pompeux, solliciteur, attentionné, réfléchi, tolérant, insatisfait, vigoureux, "; 
       html += "chaleureux,</b> et <b>gaspilleur</b> </br>";
       html += "Comme vous le verrez, ces visages ont été <b>floutés</b> afin de rendre la tâche moins évidente. </br></br>";
-      html += "Avant cette tâche d'évaluation, <b>nous allons brièvement vous afficher les visages</b> ";
+      html += "Avant cette tâche d'évaluation, <b>nous allons brièvement vous montrer les visages</b> ";
       html += "afin que vous puissiez évaluer au mieux les similitudes et les différences entre eux. </br>";
       html += "Chaque visage s'affichera automatiquement à l'écran durant 2 secondes. Merci de rester pleinement concentré.e.</br></br>";
       html += "<p></br>Appuyez sur <span class='light-keys'><kbd>espace</kbd></span> pour commencer</p>";
@@ -166,7 +166,7 @@ var imgLink = [
         var html = "";
         html += "<h1>Evaluation de visages</h1>";
         html += "<p class='justify'>Veuillez maintenant évaluer dans quelle mesure chaque visage (4 visages au total) "
-        html += "semble<b> " + trait + "</b> ";
+        html += "semble<b><u> " + trait + "</b></u> ";
         html += "de 0 (pas du tout " + trait + ") à 100 (totalement " + trait + ").</br></br>";
         html += "Notez qu'il est extrêmement important de répondre <b>aussi honnêtement et spontanément que possible.</b> "
         html += "La première réponse qui vient à l'esprit est généralement la meilleure.</br></br>";
@@ -200,7 +200,7 @@ var imgLink = [
           var answered = data.values()[0].answered;
           console.log(answered);
           if(!answered){
-            alert("Please answer the question"); 
+            alert("Vous devez répondre à la question pour pouvoir continuer (si vous souhaitez répondre '50', il vous suffit de cliquer sur le curseur sans le déplacer pour que votre réponse s'enregistre)"); 
             return true; 
           } 
         }
